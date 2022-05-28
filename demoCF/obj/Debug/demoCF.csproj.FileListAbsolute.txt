@@ -1,0 +1,16 @@
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\demoCF.exe.config
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\demoCF.exe
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\demoCF.pdb
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\EntityFramework.dll
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\EntityFramework.xml
+C:\Users\DELL\source\repos\20.11\demoCF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.csproj.SuggestedBindingRedirects.cache
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.Form1.resources
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.Properties.Resources.resources
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.csproj.GenerateResource.cache
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.csproj.CopyComplete
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.exe
+C:\Users\DELL\source\repos\20.11\demoCF\obj\Debug\demoCF.pdb
