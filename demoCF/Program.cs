@@ -11,6 +11,7 @@ namespace demoCF
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// alo 123
         [STAThread]
         static void Main()
         {
