@@ -7,9 +7,9 @@ using System.Web;
 namespace OnlineTesting.Models
 {
     public class CreateDB :
-        //CreateDatabaseIfNotExists<QLSV>
+        CreateDatabaseIfNotExists<Model_OT>
         //DropCreateDatabaseIfModelChanges<QLSV>
-        DropCreateDatabaseAlways<Model_OT>
+        //DropCreateDatabaseAlways<Model_OT>
     {
         protected override void Seed(Model_OT context)
         {
