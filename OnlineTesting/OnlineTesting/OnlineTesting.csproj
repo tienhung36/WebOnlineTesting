@@ -134,9 +134,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Answer_In_Test.cs" />
+    <Compile Include="Models\Answer_In_Test_History.cs" />
     <Compile Include="Models\CreateDB.cs" />
     <Compile Include="Models\Model_OT.cs" />
     <Compile Include="Models\Classroom.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Question_In_Test.cs" />
+    <Compile Include="Models\Question_In_Test_History.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Subject.cs" />

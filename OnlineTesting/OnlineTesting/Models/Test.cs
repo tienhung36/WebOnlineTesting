@@ -11,34 +11,27 @@ namespace OnlineTesting.Models
     [Table("Test")]
     public class Test
     {
-        public Test()
-        {
-            Test_History = new HashSet<Test_History>();
-        }
         [Key]
-        [StringLength(10)]
         public string Test_ID { get; set; }
-
-        [StringLength(10)]
-        public string Question_int_Test_ID { get; set; }
-
-        [StringLength(10)]
+        [Required]
+        public string Question_In_Test_ID { get; set; }
         public string Class_ID { get; set; }
-
-        [StringLength(10)]
+        [ForeignKey("Class_ID"), Column(Order = 2)]
+        public virtual Classroom Classroom { get; set; }
         public string Subject_ID { get; set; }
-
-        [StringLength(10)]
+        [ForeignKey("Subject_ID"), Column(Order = 1)]
+        public virtual Subject Subject { get; set; }
         public string Teacher_ID { get; set; }
-
-        [StringLength(100)]
+        [ForeignKey("Teacher_ID"), Column(Order = 0)]
+        public virtual Teacher Teacher { get; set; }
         public string Test_Description { get; set; }
-
         public bool? Test_isLock { get; set; }
-
         public DateTime? Test_timeStart { get; set; }
-
         public DateTime? Test_timeEnd { get; set; }
-        public virtual ICollection<Test_History> Test_History { get; set; }
+
+
+
+        //public virtual Test_History Test_History { get; set; }
+        public virtual ICollection<Question_In_Test> Question_In_Tests { get; set; }
     }
 }

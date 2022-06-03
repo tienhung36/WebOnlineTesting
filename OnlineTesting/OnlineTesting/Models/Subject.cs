@@ -21,5 +21,6 @@ namespace OnlineTesting.Models
         public string Subject_Name { get; set; }
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<Test> Tests { get; set; }
     }
 }
