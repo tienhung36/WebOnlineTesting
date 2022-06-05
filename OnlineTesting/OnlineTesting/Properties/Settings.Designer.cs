@@ -26,7 +26,8 @@ namespace OnlineTesting.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JJAYLAP;Initial Catalog=PBL3Database;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-4B79AA3\\SQLEXPRESS;Initial Catalog=PBL3Database;Integrated Se" +
+            "curity=True")]
         public string ChuoiKN {
             get {
                 return ((string)(this["ChuoiKN"]));

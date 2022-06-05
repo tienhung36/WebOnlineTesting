@@ -129,11 +129,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\ClassroomsController.cs" />
+    <Compile Include="Areas\admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClassroomsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\admin.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Answer_In_Test.cs" />
     <Compile Include="Models\Answer_In_Test_History.cs" />
@@ -161,12 +167,30 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\admin\Views\web.config" />
+    <Content Include="Areas\admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_Navbar.cshtml" />
+    <Content Include="Areas\admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Default\Login.cshtml" />
+    <Content Include="Areas\admin\Views\Classrooms\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Classrooms\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Classrooms\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Classrooms\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Classrooms\Index.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,6 +228,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\admin\Data\" />
+    <Folder Include="Areas\admin\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

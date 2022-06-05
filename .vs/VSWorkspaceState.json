@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\OnlineTesting",
-    "\\OnlineTesting\\OnlineTesting",
-    "\\OnlineTesting\\OnlineTesting\\Models"
+    ""
   ],
-  "SelectedNode": "\\OnlineTesting\\OnlineTesting\\Models\\CreateDB.cs",
+  "SelectedNode": "\\OnlineTesting.sln",
   "PreviewInSolutionExplorer": false
 }

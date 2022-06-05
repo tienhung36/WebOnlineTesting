@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OnlineTesting.Models.Classroom>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Classroom_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classroom_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Classroom_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Classroom_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Classroom_ID })
+        </td>
+    </tr>
+}
+
+</table>
