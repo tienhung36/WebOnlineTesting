@@ -1,34 +1,216 @@
-﻿@model IEnumerable<OnlineTesting.Models.Classroom>
-
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button class=" btn btn-success" id="btnAdd"><i class="fa fa-plus" aria-hidden="true"></i> Thêm lớp</button>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Classroom_Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Classroom_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Classroom_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Classroom_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Classroom_ID })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                Tên Lớp
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tblclassroom">
+    </tbody>
 </table>
+
+<div class="modal" tabindex="-1" id="modalLop">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="modalTitle"></div>
+                <div class="panel-body">
+                        <input type="text" hidden id="idLop" value=""/>
+                        <div class="form-group">
+                            <label>ID Lớp</label>
+                            <input type="text" class="form-control" id="IdLop" placeholder="ID Lớp">
+                        </div>
+                        <div class="form-group">
+                            <label>Tên Lớp </label>
+                            <input type="text" class="form-control" id="TenLop" placeholder="Tên Lớp">
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSubmit">Xác nhận</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            LoadDsLop();
+        });
+        $(document).on('click', "button[name='update']", function () {
+            let idLop = $(this).closest('tr').attr('id');
+            $('#modalTitle').text('Cập nhật lớp học');
+            $.ajax(
+                {
+                    url: '/admin/Classrooms/ChiTiet',
+                    type: 'get',
+                    data: {
+                        id: idLop,
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#IdLop').val(data.L.Classroom_ID);
+                            $('#TenLop').val(data.L.Classroom_Name);
+                            $('#idLop').val(idLop);
+
+                            //
+                            $('#IdLop').prop('readonly', false);
+                            $('#TenLop').prop('readonly', false);
+
+                            $('#modalLop').modal();
+                            $('#btnSubmit').show();
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+        });
+        $(document).on('click', "button[name='view']", function () {
+            $('#modalTitle').text('Chi tiết lớp học');
+            let idLop = $(this).closest('tr').attr('id');
+            $.ajax(
+                {
+                    url: '/admin/Classrooms/ChiTiet',
+                    type: 'get',
+                    data: {
+                        id: idLop,
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#IdLop').val(data.L.Classroom_ID);
+                            $('#TenLop').val(data.L.Classroom_Name);
+                            //
+                            $('#IdLop').prop('readonly', true);
+                            $('#TenLop').prop('readonly', true);
+                            $('#modalLop').modal();
+                            $('#btnSubmit').hide();
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+        });
+        $(document).on('click', "button[name='delete']", function () {
+            let idLop = $(this).closest('tr').attr('id');
+            if (confirm("Bạn thực sự muốn xóa lớp học này?")) {
+                $.ajax({
+                    url: '/admin/Classrooms/XoaLop',
+                    type: 'post',
+                    data: {
+                        id: idLop
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            alert(data.msg);
+                            LoadDsLop();
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            }
+        });
+        $('#btnAdd').click(function () {
+            $('#modalTitle').text('Thêm mới lớp học');
+            $('#idLop').val('');
+
+            $('#modalLop').modal();
+        });
+        $('#btnSubmit').click(function () {
+            let IdLop = $('#IdLop').val().trim();
+            let TenLop = $('#TenLop').val().trim();
+            // ràng buộc dữ liệu
+            if (TenLop.length == 0 || IdLop.length == 0) {
+                alert('Vui lòng nhập dữ liệu để tiếp tục')
+                return;
+            }
+            let idLop = $('#idLop').val();
+            if (idLop.length == 0) {
+                // dùng ajax để thêm
+                $.ajax(
+                    {
+                        url: '/admin/Classrooms/AddLop',
+                        type: 'post',
+                        data: {
+                            IdLop: IdLop,
+                            tenLop: TenLop
+                        },
+                        success: function (data) {
+                            if (data.code == 200) {
+                                alert(data.msg);
+                                LoadDsLop();
+                                $('#IdLop').val('').trim();
+                                $('#TenLop').val('').trim();
+                            }
+                            else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+            }
+            else {
+                $.ajax(
+                    {
+                        url: '/admin/Classrooms/CapNhat',
+                        type: 'post',
+                        data: {
+                            id: IdLop,
+                            tenLop: TenLop
+                        },
+                        success: function (data) {
+                            if (data.code == 200) {
+                                alert(data.msg);
+                                $('#modalLop').modal('hide');
+                                LoadDsLop();
+                            }
+                            else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+            }
+            
+        });
+        function LoadDsLop() {
+            $.ajax({
+                url: '/admin/Classrooms/DsLop',
+                type: 'get',
+                success: function (data) {
+                    //console.log(data);
+                    if (data.code == 200) {
+                        $('#tblclassroom').empty();
+                        $.each(data.dsLop, function (k,v) {
+                            let tr = '<tr id ="'+v.Id+'">'
+                            tr += '<td>' + v.Tenlop + '</td>';
+                            tr += '<td class="col-sm-3 text-right">';
+                            tr += '<button class ="btn btn-xs btn-info" name="view"><i class="fa fa-info-circle" aria-hidden="true"></i></button>&nbsp;';
+                            tr += '<button class ="btn btn-xs btn-warning" name="update"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>&nbsp';
+                            tr += '<button class ="btn btn-xs btn-danger" name="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                            tr += '</td>';
+                            tr += '</tr>';
+                            $('#tblclassroom').append(tr);
+
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+    }
+

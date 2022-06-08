@@ -181,10 +181,6 @@
     <Content Include="Areas\admin\Views\Shared\_Navbar.cshtml" />
     <Content Include="Areas\admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\admin\Views\Default\Login.cshtml" />
-    <Content Include="Areas\admin\Views\Classrooms\Create.cshtml" />
-    <Content Include="Areas\admin\Views\Classrooms\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\Classrooms\Details.cshtml" />
-    <Content Include="Areas\admin\Views\Classrooms\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Classrooms\Index.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
